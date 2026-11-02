@@ -1,0 +1,130 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-sidebar: var(--sidebar);
+  --color-brand-dark: var(--brand-dark);
+
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-fg: var(--gold-fg);
+  --color-pending: var(--pending);
+  --color-pending-soft: var(--pending-soft);
+  --color-pending-fg: var(--pending-fg);
+  --color-deposit: var(--deposit);
+  --color-deposit-soft: var(--deposit-soft);
+  --color-deposit-fg: var(--deposit-fg);
+  --color-paid: var(--paid);
+  --color-paid-soft: var(--paid-soft);
+  --color-paid-fg: var(--paid-fg);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  color-scheme: light;
+  --background: #f8f8f7;
+  --foreground: #18181b;
+  --card: #ffffff;
+  --card-foreground: #18181b;
+  --popover: #ffffff;
+  --popover-foreground: #18181b;
+  --primary: #1d4a38;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #eef4f1;
+  --accent-foreground: #1d4a38;
+  --destructive: #dc2626;
+  --border: #e7e7e5;
+  --input: #e4e4e7;
+  --ring: #1d4a38;
+  --radius: 0.625rem;
+  --sidebar: #ffffff;
+  --brand-dark: #0f2a20;
+
+  --gold: #b08a55;
+  --gold-soft: #f8f1e6;
+  --gold-fg: #85612f;
+  --pending: #f59e0b;
+  --pending-soft: #fffbeb;
+  --pending-fg: #b45309;
+  --deposit: #3b82f6;
+  --deposit-soft: #eff6ff;
+  --deposit-fg: #1d4ed8;
+  --paid: #10b981;
+  --paid-soft: #ecfdf5;
+  --paid-fg: #047857;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  @media (display-mode: standalone) {
+    html,
+    body {
+      overscroll-behavior: none;
+    }
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  button,
+  a,
+  [role='switch'],
+  label {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+  img {
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+  }
+  /* iOS zooms into inputs below 16px when focused; keep them at 16px on touch devices. */
+  @media (pointer: coarse) {
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+}
